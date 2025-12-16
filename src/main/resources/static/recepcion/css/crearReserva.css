@@ -1,0 +1,267 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+/* Paleta de colores consistente con otros archivos */
+:root {
+    --primary-color: #435d78;
+    --secondary-color: #34495e;
+    --success-color: #27ae60;
+    --danger-color: #c0392b;
+    --warning-color: #f39c12;
+    --info-color: #3498db;
+    --light-bg: #ecf0f1;
+    --dark-bg-primary: #1e293b;
+    --dark-bg-secondary: #2c3e50;
+    --dark-bg-tertiary: #34495e;
+    --text-light: #ecf0f1;
+    --text-muted: #bdc3c7;
+    --text-dark: #3a3f69;
+    --border-color: #778186;
+}
+
+body {
+    color: var(--text-light);
+    background: var(--dark-bg-primary);
+    font-size: 16px;
+}
+
+/* Header */
+header {
+    background: #2c3e50;
+    color: var(--text-light);
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+}
+
+/* Navbar */
+nav {
+    background: var(--secondary-color);
+    display: flex;
+    gap: 15px;
+    padding: 10px 20px;
+}
+
+nav a {
+    color: var(--text-light);
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: background 0.3s;
+}
+
+nav a:hover {
+    background: var(--primary-color);
+}
+
+nav a.active {
+    background: var(--info-color);
+    color: #fff;
+}
+
+/* Main */
+main {
+    padding: 20px;
+}
+
+main h2 {
+    margin-bottom: 25px;
+    color: var(--text-light);
+    border-bottom: 2px solid var(--info-color);
+    display: inline-block;
+    padding-bottom: 4px;
+}
+
+/* ------------ SEARCH FORM (MODIFICADO COMPLETAMENTE) ------------ */
+
+.search-form {
+    background-color: var(--dark-bg-secondary);
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+
+    /* 🔥 ACHICA EL RECUADRO */
+    max-width: 900px;       /* Ajustá este valor si querés más chico o más grande */
+    margin: 0 auto 25px;    /* Centrado */
+}
+
+.search-form .form-label {
+    color: var(--text-light);
+    margin-bottom: 4px;
+}
+
+.search-form .form-control {
+    background-color: var(--dark-bg-tertiary);
+    color: var(--text-light);
+    height: 36px;
+    padding: 6px 10px;
+    border: 1px solid var(--border-color);
+}
+
+.search-form .col-md-4 {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Botones compactos */
+.botones-busqueda .btn {
+    padding: 5px 12px;
+    font-size: 0.8rem;
+}
+
+/* Botones Buscar/Limpiar */
+#btnBuscar {
+    background-color: var(--info-color);
+    border: none;
+    color: white;
+}
+#btnBuscar:hover {
+    filter: brightness(0.9);
+}
+
+#btnLimpiar {
+    background-color: var(--secondary-color);
+    border: none;
+    color: white;
+}
+#btnLimpiar:hover {
+    filter: brightness(0.9);
+}
+
+/* ------------ TABLA RESULTADOS ------------ */
+
+#results {
+    margin-top: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+#results thead th {
+    background-color: #53a8f7;
+    color: var(--text-light);
+}
+
+/* Modal (sin cambios) ... */
+
+/* MODAL */
+.modal-body h3,
+.modal-body h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-light);
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 2px solid var(--info-color);
+}
+.modal .modal-title {
+    text-align: left;
+    width: auto;
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--text-light);
+}
+.modal .modal-content {
+    background: var(--dark-bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+    color: var(--text-light);
+}
+.modal .modal-header {
+    background: var(--secondary-color);
+    color: var(--text-light);
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+.modal .btn-close {
+    filter: brightness(0) invert(1);
+    opacity: 0.9;
+}
+.modal .btn-close:hover {
+    opacity: 1;
+}
+.modal .modal-body {
+    padding: 1.5rem;
+}
+.modal label.form-label {
+    font-weight: 500;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+}
+.modal .form-control,
+.modal .form-select {
+    border-radius: 0.375rem;
+    border: 1px solid var(--border-color);
+    background-color: var(--dark-bg-secondary);
+    color: var(--text-light);
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+.modal .form-control:focus,
+.modal .form-select:focus {
+    border-color: var(--info-color);
+    background-color: var(--dark-bg-secondary);
+    box-shadow: 0 0 0 0.25rem rgba(52, 152, 219, 0.25);
+    outline: none;
+    color: var(--text-light);
+}
+.modal .modal-footer {
+    background: var(--secondary-color);
+    border-top: 1px solid var(--border-color);
+    padding: 1rem 1.5rem;
+    justify-content: flex-end;
+}
+
+/* Inputs buscador */
+.search-form input,
+.search-form select,
+.search-form textarea {
+    background-color: #495057;
+    color: #f1f1f1;
+    border: 1px solid #6c757d;
+    border-radius: 4px;
+    padding: 0.5rem;
+}
+
+.search-form input::placeholder,
+.search-form textarea::placeholder {
+    color: #dcdcdc;
+    opacity: 1;
+}
+
+.search-form input:focus,
+.search-form select:focus,
+.search-form textarea:focus {
+    outline: none;
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+#results-body td {
+    text-align: center;
+    padding: 1rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-style: italic;
+    background-color: var(--dark-bg-secondary);
+    border-radius: 6px;
+}
+
+#results-body td.text-muted {
+    text-align: center;
+    padding: 1.2rem;
+    color: #ffffff !important;
+    font-style: italic;
+    background-color: rgba(255, 255, 255, 0.03);
+    border-radius: 6px;
+    letter-spacing: 0.3px;
+    animation: fadeIn 0.3s ease-in;
+}

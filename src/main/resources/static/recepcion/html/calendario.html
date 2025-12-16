@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendario de Reservas</title>
+
+    <link rel="stylesheet" href="../css/calendario.css">
+    <link rel="icon" type="image/png" href="../Iconos/IMG/Icono.png"/>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+
+<body>
+
+<header class="main-header">
+
+     <div class="header-content">
+        <div class="establishment-name">Calendario</div>
+    </div>
+
+    <nav class="main-nav">
+        <button class="nav-btn" onclick="window.location.href='checkinout.html'">Check-in / Check-out</button>
+        <button class="nav-btn" onclick="window.location.href='habitaciones.html'">Habitaciones</button>
+        <button class="nav-btn active" onclick="window.location.href='calendario.html'">Calendario</button>
+        <button class="nav-btn" onclick="window.location.href='crearReserva.html'">Buscar Reserva</button>
+    </nav>
+
+</header>
+
+
+<main class="main-content">
+
+    <section class="calendar-controls">
+        <div class="month-selector">
+            <button class="btn-nav" id="prevMonth">&#8249;</button>
+            <h2 id="currentMonth">Enero 2025</h2>
+            <button class="btn-nav" id="nextMonth">&#8250;</button>
+        </div>
+        <div class="view-controls">
+            <button class="btn btn-success" id="newReservationBtn">Nueva Reserva</button>
+        </div>
+    </section>
+
+    <section class="room-selector">
+        <label for="roomFilter">Filtrar por:</label>
+        <select id="roomFilter" class="form-control">
+            <option value="all">Todas las habitaciones</option>
+        </select>
+    </section>
+
+    <section class="calendar-section">
+        <div class="calendar-header">
+            <div class="day-header">DOM</div>
+            <div class="day-header">LUN</div>
+            <div class="day-header">MAR</div>
+            <div class="day-header">MIÉ</div>
+            <div class="day-header">JUE</div>
+            <div class="day-header">VIE</div>
+            <div class="day-header">SÁB</div>
+        </div>
+        <div class="calendar-grid" id="calendarGrid"></div>
+    </section>
+
+    <section class="reservations-list">
+        <h3>Reservas del día seleccionado</h3>
+        <div id="dayReservations">
+            <p class="no-reservations">Selecciona un día para ver las reservas</p>
+        </div>
+    </section>
+
+</main>
+
+<!-- MODAL: CREAR / EDITAR RESERVA -->
+<div class="modal" id="reservationModal">
+    <div class="modal-content">
+
+        <div class="modal-header">
+            <h2 id="modalTitle">Nueva Reserva</h2>
+            <button class="close-modal">&times;</button>
+        </div>
+
+        <div class="modal-body">
+
+            <!-- NOMBRE / APELLIDO -->
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Nombre:</label>
+                    <input type="text" id="guestNombre" class="form-control" placeholder="Nombre">
+                </div>
+                <div class="form-group">
+                    <label>Apellido:</label>
+                    <input type="text" id="guestApellido" class="form-control" placeholder="Apellido">
+                </div>
+            </div>
+
+            <!-- EMAIL / TELÉFONO -->
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Email:</label>
+                    <input type="email" id="guestEmail" class="form-control" placeholder="email@ejemplo.com">
+                </div>
+                <div class="form-group">
+                    <label>Teléfono:</label>
+                    <input type="tel" id="guestTelefono" class="form-control" placeholder="+54 9 11 1234-5678">
+                </div>
+            </div>
+
+            <!-- HABITACIÓN / CANT PERSONAS -->
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Habitación:</label>
+                    <select id="reservationRoom" class="form-control">
+                        <option value="">Seleccionar...</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Cantidad de personas:</label>
+                    <input type="number" id="guestCount" class="form-control" value="1" min="1">
+                </div>
+            </div>
+
+            <!-- FECHAS -->
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Fecha de entrada:</label>
+                    <div class="input-icon">
+                        <input type="date" id="checkInDate" class="form-control">
+                        <i class="fa-solid fa-calendar-days" onclick="document.getElementById('checkInDate').showPicker()"></i>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Fecha de salida:</label>
+                    <div class="input-icon">
+                        <input type="date" id="checkOutDate" class="form-control">
+                        <i class="fa-solid fa-calendar-days" onclick="document.getElementById('checkOutDate').showPicker()"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MONTO TOTAL / SEÑA -->
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Monto Total:</label>
+                    <input type="number" id="totalAmount" class="form-control" placeholder="0.00" step="0.01">
+                </div>
+                <div class="form-group">
+                    <label>Seña / Adelanto:</label>
+                    <input type="number" id="depositAmount" class="form-control" placeholder="0.00" step="0.01">
+                </div>
+            </div>
+
+            <!-- PAGO / MÉTODO -->
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Pago recibido:</label>
+                    <input type="number" id="paymentMade" class="form-control" placeholder="0.00" step="0.01">
+                </div>
+                <div class="form-group">
+                    <label>Método de Pago:</label>
+                    <select id="metodoPago" class="form-control">
+                        <option value="efectivo">Efectivo</option>
+                        <option value="tarjeta">Tarjeta</option>
+                        <option value="transferencia">Transferencia</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- ESTADO -->
+            <div class="form-row">
+                <div class="form-group full-width" id="paymentStatusContainer" style="display:none;">
+                    <label>Estado de Reserva:</label>
+                    <select id="paymentStatus" class="form-control">
+                        <option value="pendiente">Pendiente</option>
+                        <option value="confirmada">Confirmada</option>
+                        <option value="cancelada">Cancelada</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- NOTAS -->
+            <div class="form-group full-width">
+                <label>Comentarios / Notas:</label>
+                <textarea id="reservationNotes" class="form-control" rows="3" placeholder="Observaciones, solicitudes especiales, etc."></textarea>
+            </div>
+
+            <!-- RESUMEN -->
+            <div class="payment-summary">
+                <p>Total: $<span id="summaryTotal">0.00</span></p>
+                <p>Seña: $<span id="summaryDeposit">0.00</span></p>
+                <p>Pago: $<span id="summaryPaid">0.00</span></p>
+                <p class="debt-amount">Debe: $<span id="summaryDebt">0.00</span></p>
+            </div>
+
+        </div>
+
+        <div class="modal-footer">
+            <button class="btn btn-danger" id="deleteReservation" style="display:none;">Eliminar</button>
+            <button class="btn btn-secondary" id="cancelReservation">Cancelar</button>
+            <button class="btn btn-primary" id="saveReservation">Guardar</button>
+        </div>
+
+    </div>
+</div>
+
+<!-- MODAL DETALLES -->
+<div class="modal" id="detailsModal">
+    <div class="modal-content">
+
+        <div class="modal-header">
+            <h2>Detalles de la Reserva</h2>
+            <button class="close-modal">&times;</button>
+        </div>
+
+        <div class="modal-body">
+            <div id="reservationDetails"></div>
+        </div>
+
+        <div class="modal-footer">
+            <button class="btn btn-primary" id="editReservationBtn">Editar</button>
+            <button class="btn btn-secondary" id="closeDetails">Cerrar</button>
+        </div>
+
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="../js/calendario.js"></script>
+
+</body>
+</html>

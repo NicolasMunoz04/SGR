@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro - Hotel Paraíso Azul</title>
+  <link rel="stylesheet" href="../CSS/style.css">
+  <link rel="stylesheet" href="../CSS/Chatbot.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="../IMG/iconos/Icono.png">
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">
+      <a href="Index.html">
+        <img src="../IMG/iconos/Icono.png" alt="Hotel Paraíso">
+      </a>
+    </div>
+    <nav class="nav-center">
+      <ul class="nav-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="habitaciones.html">Habitaciones</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="Contacto.html">Contacto</a></li>
+        <li class="dropdown">
+          <a href="#" class="active">Login ▼</a>
+          <ul class="dropdown-menu">
+            <li><a href="login.html">Iniciar Sesión</a></li>
+            <li><a href="registro.html">Registrarse</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <div class="search-bar">
+      <input type="text" placeholder="Buscar...">
+      <button>🔍</button>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" style="background-image: url('../IMG/Fondos/Hero\ 7.jpg');">
+    <div class="hero-content">
+      <h3>Crea tu cuenta</h3>
+      <h1>Registro</h1>
+    </div>
+  </section>
+
+  <!-- Formulario de Registro -->
+  <section class="disponibilidad">
+    <form>
+      <div class="form-group">
+        <label for="nombre">Nombre completo</label>
+        <input type="text" id="nombre" placeholder="Tu nombre" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Correo electrónico</label>
+        <input type="email" id="email" placeholder="tuemail@ejemplo.com" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Contraseña</label>
+        <input type="password" id="password" placeholder="********" required>
+      </div>
+      <div class="form-group">
+        <label for="password2">Confirmar contraseña</label>
+        <input type="password" id="password2" placeholder="********" required>
+      </div>
+      <button type="submit" class="btn">Registrarse</button>
+      <p style="margin-top: 10px; text-align:center;">¿Ya tienes cuenta? <a href="login.html">Inicia sesión</a></p>
+    </form>
+  </section>
+
+  <!-- Botón flotante del chatbot -->
+<button id="chatbot-button">
+  <img src="../IMG/Iconos/Chatbot.png" alt="Chatbot">
+</button>
+
+<!-- Ventana del chatbot -->
+<div id="chatbot-widget" style="display: none;">
+  <div id="chatbot-header">
+    <img src="../IMG/Iconos/Chatbot.png" alt="Hotel">
+    <span class="header-text">Asistente Virtual</span>
+    <span class="close-btn">&times;</span>
+  </div>
+  
+    <div id="chatbot-messages">
+      <!-- Aquí se insertan los mensajes dinámicos -->
+    </div>
+  
+    <input type="text" id="chatbot-input" placeholder="Escribe tu mensaje...">
+</div>
+
+  <!-- Footer -->
+  <footer id="footer" class="footer">
+    <h2>Universidad Nacional de la Patagonia San Juan Bosco</h2>
+    <p>Proyecto UNPSJB - Hotel Paraíso</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../JS/Menu.js"></script>
+  <script src="../JS/ChatBot.js"></script>
+  
+</body>
+</html>

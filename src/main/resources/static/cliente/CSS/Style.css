@@ -1,0 +1,1000 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  background: #fff;
+  color: #222;
+  line-height: 1.6;
+}
+
+/* =======================
+   Variables layout
+======================= */
+:root {
+  --nav-h: 72px;
+  --card-overlap: clamp(56px, 10vh, 140px);
+  --radius: 16px;
+}
+
+/* =======================
+   Navbar
+======================= */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0,0,0,0.6);
+  padding: 10px 40px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+}
+
+.logo img {
+  height: 50px;
+}
+
+/* ✅ Menú centrado y limpio */
+.nav-center {
+  flex: 0 1 auto;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.nav-links {
+  list-style: none;
+  display: inline-flex;
+  gap: 30px;
+}
+
+.nav-links li {
+  position: relative;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+  transition: color 0.3s ease, background 0.2s ease;
+  padding: 4px 8px;
+  border-radius: .5rem;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #00acc1;
+  background: rgba(255,255,255,.1);
+}
+
+/* ❌ Eliminamos dropdown y search-bar */
+.dropdown,
+.search-bar {
+  display: none !important;
+}
+
+/* =======================
+   Hero
+======================= */
+.hero {
+  position: relative;
+  min-height: calc(100vh - var(--nav-h));
+  display: grid;
+  place-items: center;
+  text-align: center;
+  color: #fff;
+  background: url("../IMG/Fondos/Hero 1.jpg") no-repeat center center/cover;
+  padding-bottom: calc(var(--card-overlap) + 20px);
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.45);
+  z-index: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-content h3 {
+  font-size: 28px;
+  margin-bottom: 10px;
+  text-shadow: 0 3px 6px rgba(0,0,0,0.35);
+}
+
+.hero-content h1 {
+  font-size: 56px;
+  font-weight: bold;
+  text-shadow: 0 3px 8px rgba(0,0,0,0.6);
+}
+
+/* =======================
+   Formulario disponibilidad
+======================= */
+.disponibilidad {
+  position: relative;
+  top: calc(-1 * var(--card-overlap));
+  margin: 0 auto 60px;
+  width: min(1100px, 92%);
+  padding: 20px;
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+  z-index: 10;
+}
+
+#form-disponibilidad {
+  display: grid;
+  grid-template-columns: 1.2fr 1.2fr .7fr .7fr .9fr;
+  gap: 16px;
+  align-items: end;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.form-group input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+}
+
+.form-group input:focus {
+  border-color: #00acc1;
+  box-shadow: 0 0 0 3px rgba(0,172,193,.2);
+}
+
+.btn {
+  background: #00acc1;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  padding: 12px 24px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+  background: #008b9a;
+  transform: scale(1.05);
+}
+
+/* =======================
+   Footer
+======================= */
+.footer {
+  background: #134777;
+  color: #fff;
+  text-align: center;
+  padding: 40px 20px;
+  margin-top: 60px;
+}
+
+/* =======================
+   Responsive Navbar
+======================= */
+.menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.9);
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    padding: 20px 0;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+    margin-left: 15px;
+  }
+
+  .search-bar {
+    display: none;
+  }
+}
+
+.navbar.scrolled {
+  background: rgba(0, 0, 0, 0.9);
+  transition: background 0.3s ease;
+}
+
+/* =======================
+   Sección Habitaciones
+======================= */
+.habitaciones {
+  max-width: 1200px;
+  margin: 60px auto;
+  text-align: center;
+  padding: 20px;
+}
+
+.habitaciones h2 {
+  font-size: 32px;
+  margin-bottom: 40px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.card {
+  background: #fff;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card h3 {
+  font-size: 22px;
+  margin: 15px 0 10px;
+}
+
+.card p {
+  font-size: 15px;
+  color: #555;
+  padding: 0 15px 15px;
+}
+
+.card .btn {
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+/* =======================
+   Contacto
+======================= */
+.contacto {
+  background: #f9f9f9;
+  padding: 100px 20px 60px;
+}
+
+.contacto-container {
+  max-width: 1100px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 40px;
+  align-items: center;
+}
+
+.contacto-info h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: #134777;
+}
+
+.contacto-info p {
+  margin-bottom: 20px;
+  color: #444;
+}
+
+.contacto-info ul {
+  list-style: none;
+  padding: 0;
+}
+
+.contacto-info li {
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #222;
+}
+
+.contacto-form .form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.contacto-form label {
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.contacto-form input,
+.contacto-form textarea {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+.contacto-form .btn {
+  background: #00acc1;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  padding: 12px 24px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.contacto-form .btn:hover {
+  background: #008b9a;
+  transform: scale(1.05);
+}
+
+/* =======================
+   Responsive hero + form
+======================= */
+@media (max-width: 900px) {
+  :root{ --card-overlap: 0px; }
+  .hero { padding-bottom: 24px; }
+  .disponibilidad {
+    top: 0;
+    margin: 16px auto 48px;
+    width: min(720px, 94%);
+  }
+  #form-disponibilidad {
+    grid-template-columns: 1fr 1fr;
+  }
+  #form-disponibilidad .btn {
+    grid-column: 1 / -1;
+    justify-self: end;
+  }
+}
+
+@media (max-width: 520px) {
+  #form-disponibilidad {
+    grid-template-columns: 1fr;
+  }
+  #form-disponibilidad .btn {
+    justify-self: stretch;
+  }
+}
+
+/* ===== Utilidad: contenedor ancho controlado ===== */
+.container{
+  width: min(1100px, 92%);
+  margin: 0 auto;
+}
+
+/* ===== Beneficios (USP) ===== */
+.beneficios{
+  padding: 30px 0 10px;
+}
+.beneficios .cards{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+  margin-top: 20px;
+}
+.beneficios .card{
+  text-align: center;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  overflow: hidden;
+  padding-bottom: 16px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.beneficios .card:hover{
+  transform: translateY(-8px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+}
+.beneficios .card img{
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  display: block;
+}
+.beneficios .card h3{
+  font-size: 18px;
+  margin: 12px 0 6px;
+}
+.beneficios .card p{
+  font-size: 14px;
+  color: #555;
+  padding: 0 12px;
+}
+
+/* ===== Habitaciones destacadas ===== */
+.habitaciones-home{
+  padding: 30px 0;
+}
+.home-header{
+  display: flex; justify-content: space-between; align-items: baseline;
+  margin-bottom: 18px;
+}
+.home-header h2{ font-size: 28px; }
+.link-vermas{
+  color: #00acc1; font-weight: 700;
+}
+.habitaciones-home .cards{
+  gap: 24px;
+}
+.habitaciones-home .card img{
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-top-left-radius: var(--radius);
+  border-top-right-radius: var(--radius);
+  display: block;
+}
+
+/* ===== Testimonios ===== */
+.testimonios{
+  background: #f8fafc;
+  padding: 40px 0;
+}
+.testimonios h2{
+  text-align: center; font-size: 28px; margin-bottom: 18px;
+}
+.grid-testimonios{
+  display: grid; gap: 18px;
+  grid-template-columns: repeat(3,1fr);
+}
+.testi{
+  background: #fff; border-radius: 16px; padding: 18px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.06);
+}
+.testi p{ margin-bottom: 8px; }
+.testi footer{ color:#555; font-size: 14px; }
+
+/* ===== Ubicación / Mapa ===== */
+.ubicacion{
+  padding: 40px 0;
+}
+.ubicacion .container{
+  display: grid; gap: 24px;
+  grid-template-columns: 1.2fr .8fr;
+  align-items: center;
+}
+.mapa iframe{
+  width: 100%; height: 360px; border: 0; border-radius: 16px;
+}
+.datos h2{ font-size: 28px; margin-bottom: 8px; }
+.datos p{ margin-bottom: 10px; color:#444; }
+.datos ul{ list-style: none; padding: 0; margin: 0 0 12px; }
+.datos li{ margin: 6px 0; }
+
+/* ===== Responsive ===== */
+@media (max-width: 1000px){
+  .beneficios .cards{ grid-template-columns: repeat(2,1fr); }
+  .grid-testimonios{ grid-template-columns: 1fr 1fr; }
+  .ubicacion .container{ grid-template-columns: 1fr; }
+}
+@media (max-width: 560px){
+  .beneficios .cards{ grid-template-columns: 1fr; }
+  .grid-testimonios{ grid-template-columns: 1fr; }
+  .home-header{ flex-direction: column; gap: 6px; }
+}
+
+/* =======================
+   Intro (Sección transición)
+======================= */
+.intro {
+  text-align: center;
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #00acc1, #134777);
+  color: white;
+  width: 100%;
+  margin: 0;
+  border-radius: 0;
+}
+
+.intro h2 {
+  font-size: 32px;
+  margin-bottom: 16px;
+}
+
+.intro p {
+  font-size: 18px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* ======== Estabilidad de scroll ======== */
+html { scrollbar-gutter: stable; }
+@supports not (scrollbar-gutter: stable) {
+  html { overflow-y: scroll; }
+}
+body.modal-open { overflow: hidden; }
+
+/* =======================
+   Modal / Galería (limpio)
+======================= */
+.gallery-modal{
+  position: fixed;
+  inset: 0;
+  z-index: 1100;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s ease;
+}
+.gallery-modal.is-open{
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Backdrop */
+.gm-backdrop{
+  position: fixed; inset: 0;
+  background: rgba(15,18,20,.72);
+  backdrop-filter: blur(2px);
+}
+
+/* Contenedor sin paneles negros: centrado */
+.gm-content{
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: transparent;
+  padding: 0;
+}
+
+/* Imagen protagonista */
+.gm-img{
+  max-width: min(92vw, 1200px);
+  max-height: 86vh;
+  width: auto; height: auto;
+  object-fit: contain;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.35);
+  background: transparent;
+  display: block;
+}
+
+/* Controles “glass” */
+.gm-prev, .gm-next, .gm-close{
+  position: fixed;
+  border: 0;
+  width: 44px; height: 44px;
+  border-radius: 999px;
+  display: grid; place-items: center;
+  cursor: pointer;
+  color: #fff;
+  background: rgba(255,255,255,.14);
+  backdrop-filter: blur(4px);
+  transition: transform .15s ease, background .2s ease, opacity .2s ease;
+}
+.gm-prev:hover, .gm-next:hover, .gm-close:hover{
+  background: rgba(255,255,255,.24);
+  transform: scale(1.05);
+}
+
+/* Posiciones de controles */
+.gm-close{ top: 24px; right: 24px; }
+.gm-prev{ left: 24px; top: 50%; transform: translateY(-50%); }
+.gm-next{ right: 24px; top: 50%; transform: translateY(-50%); }
+
+/* Dots centrados abajo */
+.gm-dots{
+  position: fixed;
+  left: 50%; transform: translateX(-50%);
+  bottom: 24px;
+  display: flex; gap: 8px;
+}
+.gm-dot{
+  width: 10px; height: 10px; border-radius: 50%;
+  border: 0; cursor: pointer;
+  background: rgba(255,255,255,.45);
+}
+.gm-dot.is-active{ background: #00acc1; }
+
+/* Responsive pequeño */
+@media (max-width: 560px){
+  .gm-prev{ left: 12px; }
+  .gm-next{ right: 12px; }
+  .gm-close{ top: 12px; right: 12px; }
+  .gm-img{ max-width: 94vw; max-height: 80vh; }
+}
+
+/* Importante: la imagen de la card debe recibir el click */
+.habitaciones .card img {
+  -webkit-user-drag: none;
+  user-select: none;
+  pointer-events: auto;
+}
+.habitaciones .card { user-select: none; }
+
+/* ===== Modal en 2 columnas (galería + ficha) ===== */
+.gm-shell{
+  position: fixed; inset: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(320px, 1fr);
+  gap: 0;
+  align-items: center;
+  justify-items: center;
+  padding: 32px;
+}
+
+.gm-media{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-width: min(100%, 1200px);
+  display: grid;
+  place-items: center;
+}
+
+.gm-img{
+  max-width: 100%;
+  max-height: 86vh;
+  object-fit: contain;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.35);
+  background: transparent;
+}
+
+/* Ficha lateral */
+.gm-aside{
+  width: 100%;
+  max-width: 420px;
+  background: rgba(255,255,255,.96);
+  color: #0f172a;
+  border-radius: 16px;
+  box-shadow: 0 12px 40px rgba(0,0,0,.20);
+  padding: 20px 18px 18px;
+  position: relative;
+}
+
+.gm-aside h3{
+  font-size: 22px;
+  margin-bottom: 8px;
+}
+
+.gm-desc{
+  color: #475569;
+  margin-bottom: 12px;
+}
+
+.gm-amenities{
+  list-style: none;
+  padding: 0; margin: 0 0 12px;
+  display: flex; flex-wrap: wrap; gap: 8px;
+}
+.gm-amenities li{
+  background: #e6f7fa;
+  color: #0f4a57;
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.gm-meta{
+  display: flex; justify-content: space-between; align-items: center;
+  margin: 8px 0 14px;
+}
+.gm-badge{
+  background: #eef2ff;
+  color: #3730a3;
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-weight: 600; font-size: 13px;
+}
+.gm-price{
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.gm-cta{
+  width: 100%; text-align: center;
+  display: inline-block;
+}
+
+/* Reubico los controles para que no tapen la ficha */
+.gm-prev{ left: 24px; }
+.gm-next{ right: calc(24px + 420px); } /* correla al borde de la ficha */
+
+/* Dots centrados debajo de la imagen */
+.gm-dots{ bottom: 16px; }
+
+/* Responsive: en mobile la ficha va abajo y todo ocupa ancho completo */
+@media (max-width: 900px){
+  .gm-shell{
+    grid-template-columns: 1fr;
+    align-items: start;
+    padding: 16px;
+    row-gap: 12px;
+  }
+  .gm-next{ right: 12px; }
+  .gm-prev{ left: 12px; }
+  .gm-aside{
+    max-width: 680px;
+    margin: 0 auto;
+  }
+}
+
+/* Close dentro de la ficha, arriba a la derecha */
+.gm-close{
+  position: absolute;
+  top: 10px; right: 10px;
+  width: 36px; height: 36px;
+}
+
+/* Asegurar que la imagen de la card recibe click */
+.habitaciones .card img {
+  -webkit-user-drag: none;
+  user-select: none;
+  pointer-events: auto;
+}
+
+/* ====== Cards destacadas (Inicio) ====== */
+.card-media{
+  position: relative;
+  overflow: hidden;
+  border-top-left-radius: var(--radius);
+  border-top-right-radius: var(--radius);
+}
+.card-media img{
+  width: 100%;
+  aspect-ratio: 16 / 10;     /* altura consistente */
+  object-fit: cover;
+  display: block;
+  transform: scale(1.001);
+  transition: transform .35s ease;
+}
+.card:hover .card-media img{ transform: scale(1.04); }
+
+.room-badge{
+  position: absolute;
+  left: 12px; top: 12px;
+  background: rgba(0,0,0,.55);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .3px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  backdrop-filter: blur(2px);
+}
+
+/* Grilla más flexible para destacadas */
+.habitaciones-home .cards{
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+/* Textos de las cards */
+.habitaciones-home .card h3{ margin-top: 12px; }
+.habitaciones-home .card p{ margin: 6px 0 14px; color:#475569; }
+
+/* ===== Servicios esenciales ===== */
+.servicios { padding: 32px 0; background: #ffffff; }
+.servicios-cards {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 22px;
+}
+.servicio-card {
+  text-align: left;
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  row-gap: 8px;
+  padding-bottom: 16px;
+}
+.servicio-icon {
+  width: 48px; height: 48px;
+  margin: 14px 14px 6px;
+  border-radius: 12px;
+  display: grid; place-items: center;
+  font-size: 24px;
+  background: #e6f7fa;
+  color: #0f4a57;
+}
+.servicio-card h3 { font-size: 18px; margin: 0 14px; }
+.servicio-card p  { font-size: 14px; color: #555; margin: 0 14px 8px; }
+
+/* ===== Teaser “Qué podés hacer en Esquel” ===== */
+.esquel-teaser { padding: 36px 0; background: #f8fafc; }
+.esquel-cards {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 22px;
+}
+.esquel-card { overflow: hidden; }
+.esquel-card img {
+  width: 100%; aspect-ratio: 16/9; object-fit: cover;
+  display: block;
+}
+.esquel-card-body { padding: 14px; text-align: left; }
+.esquel-card-body h3 { font-size: 18px; margin-bottom: 6px; }
+.esquel-card-body p  { font-size: 14px; color: #555; margin-bottom: 8px; }
+
+/* Botón ghost para el header */
+.btn-ghost {
+  background: transparent;
+  color: #00acc1;
+  border: 2px solid #00acc1;
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-weight: 700;
+  transition: background .2s ease, color .2s ease, transform .15s ease;
+}
+.btn-ghost:hover { background: #00acc1; color: #fff; transform: translateY(-1px); }
+
+/* Link “ver más” */
+.link-vermas { color: #00acc1; font-weight: 700; }
+.link-vermas:hover { text-decoration: underline; }
+
+/* ===== CTA de reserva en el hero ===== */
+.reserva-nota {
+  color: #fff;
+  background: rgba(0, 0, 0, 0.35);
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.btn-whatsapp-hero {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #25D366;
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+  margin-top: 14px;
+  transition: filter 0.15s ease;
+}
+
+.btn-whatsapp-hero:hover {
+  filter: brightness(1.05);
+}
+
+/* ===== Sección “¿Cómo reservo?” ===== */
+.como-reservar {
+  background: #f1fbff;
+  padding: 80px 20px;
+  text-align: center;
+  border-top: 2px solid #e0f4f7;
+  border-bottom: 2px solid #e0f4f7;
+}
+
+.como-reservar h2 {
+  font-size: 32px;
+  color: #134777;
+  margin-bottom: 24px;
+}
+
+.como-reservar ol {
+  list-style-position: inside;
+  margin-bottom: 28px;
+  font-size: 18px;
+  color: #333;
+  line-height: 1.6;
+}
+
+.como-reservar a.btn-whatsapp-hero {
+  background: #25d366;
+  color: #fff;
+  padding: 14px 26px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.como-reservar a.btn-whatsapp-hero:hover {
+  background: #1ebe5d;
+  transform: scale(1.05);
+}
+
+/* Botón centrado */
+.habitaciones .card .btn {
+  margin: auto auto 22px auto;
+  background: #00bcd4;
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 10px 24px;
+  border-radius: 25px;
+  transition: background 0.3s;
+}
+
+.habitaciones .card .btn:hover {
+  background: #019bb5;
+}
+/* Cards uniformes */
+.habitaciones .cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.habitaciones .card {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.habitaciones .card:hover {
+  transform: translateY(-6px);
+}
+
+.habitaciones .card img {
+  height: 210px;
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+  object-fit: cover;
+}
+
+.habitaciones .card h3 {
+  margin: 18px 0 8px;
+  color: #1d3557;
+}
+
+.habitaciones .card p {
+  color: #555;
+  margin: 0 15px 25px;
+  min-height: 48px;
+}
+
+/* Botón centrado */
+.habitaciones .card .btn {
+  margin: auto auto 22px auto;
+  background: #00bcd4;
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 10px 24px;
+  border-radius: 25px;
+  transition: background 0.3s;
+}
+
+.habitaciones .card .btn:hover {
+  background: #019bb5;
+}

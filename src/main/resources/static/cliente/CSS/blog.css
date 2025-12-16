@@ -1,0 +1,12 @@
+/* Hero del blog (reutiliza la clase .hero global) */
+.hero--blog{
+  background: url("../IMG/Blogs/Blog.jpg") center/cover no-repeat;
+}
+
+/* Pequeños ajustes visuales de cards del blog (si querés diferenciarlo) */
+.habitaciones .cards .card {
+  cursor: default;               /* en Blog las cards no “abren modal” */
+}
+.habitaciones .cards .card .btn {
+  cursor: pointer;               /* el botón sí es clickeable */
+}

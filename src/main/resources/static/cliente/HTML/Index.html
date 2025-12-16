@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hotel Paraíso</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="../CSS/style.css">
+  <link rel="stylesheet" href="../CSS/Chatbot.css">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../IMG/Iconos/Icono.png">
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">
+      <a href="Index.html">
+        <img src="../IMG/Iconos/Icono.png" alt="Hotel Paraíso">
+      </a>
+    </div>
+    <nav class="nav-center">
+      <ul class="nav-links">
+        <li><a href="Index.html" class="active">Inicio</a></li>
+        <li><a href="Habitaciones.html">Habitaciones</a></li>
+        <li><a href="Blog.html">Blog</a></li>
+        <li><a href="Contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <p class="reserva-nota">Reservas solo por WhatsApp 👇</p>
+      <h3>Vacaciones Familiares</h3>
+      <h1>Vive el Paraíso</h1>
+      <a class="btn-whatsapp-hero" href="https://wa.me/5491112345678?text=Hola,%20quiero%20consultar%20disponibilidad" target="_blank" rel="noopener">
+        Reservar por WhatsApp
+      </a>
+    </div>
+  </section>
+
+  <!-- Formulario de disponibilidad -->
+  <section class="disponibilidad">
+    <form id="form-disponibilidad">
+      <div class="form-group">
+        <label for="checkin">Fecha de llegada</label>
+        <input type="date" id="checkin" required>
+      </div>
+      <div class="form-group">
+        <label for="checkout">Fecha de salida</label>
+        <input type="date" id="checkout" required>
+      </div>
+      <div class="form-group">
+        <label for="adultos">Adultos</label>
+        <input type="number" id="adultos" min="1" value="1" required>
+      </div>
+      <div class="form-group">
+        <label for="ninos">Niños</label>
+        <input type="number" id="ninos" min="0" value="0">
+      </div>
+      <!-- importante: ahora es button, no submit -->
+      <button type="button" class="btn" id="btn-whatsapp-form">Enviar consulta</button>
+    </form>
+  </section>
+
+  <!-- Transición -->
+  <section class="intro">
+    <div class="container">
+      <h2>Tu descanso, nuestra prioridad</h2>
+      <p>En Hotel Paraíso combinamos confort, ubicación y atención personalizada para que disfrutes cada momento de tu estadía.</p>
+    </div>
+  </section>
+
+  <!-- Habitaciones destacadas -->
+  <section class="habitaciones-home">
+    <div class="container">
+      <div class="home-header">
+        <h2>Habitaciones destacadas</h2>
+        <a href="Habitaciones.html" class="link-vermas">Ver todas →</a>
+      </div>
+
+      <div class="cards">
+        <!-- Privada Superior -->
+        <article class="card">
+          <figure class="card-media">
+            <img
+              src="../IMG/habitaciones/habitacion_superior_1.jpg"
+              srcset="../IMG/habitaciones/habitacion_superior_1.jpg 800w, ../IMG/habitaciones/habitacion_superior_2.jpg 1200w"
+              sizes="(max-width: 800px) 100vw, 33vw"
+              alt="Habitación Privada Superior"
+              loading="lazy">
+            <span class="room-badge">Privada</span>
+          </figure>
+          <h3>Privada Superior</h3>
+          <p>Desde $65.000 / noche</p>
+          <a class="btn" href="Habitaciones.html#privadas">Ver más</a>
+        </article>
+
+        <!-- Matrimonial Deluxe -->
+        <article class="card">
+          <figure class="card-media">
+            <img
+              src="../IMG/habitaciones/matrimonial_deluxe_1.jpg"
+              srcset="../IMG/habitaciones/matrimonial_deluxe_1.jpg 800w, ../IMG/habitaciones/matrimonial_deluxe_2.jpg 1200w"
+              sizes="(max-width: 800px) 100vw, 33vw"
+              alt="Habitación Matrimonial Deluxe"
+              loading="lazy">
+            <span class="room-badge">Matrimonial</span>
+          </figure>
+          <h3>Matrimonial Deluxe</h3>
+          <p>Desde $85.000 / noche</p>
+          <a class="btn" href="Habitaciones.html#matrimoniales">Ver más</a>
+        </article>
+
+        <!-- Compartida 4 Camas -->
+        <article class="card">
+          <figure class="card-media">
+            <img
+              src="../IMG/habitaciones/habitacion_compartida_4_camas_1.jpg"
+              srcset="../IMG/habitaciones/habitacion_compartida_4_camas_1.jpg 800w, ../IMG/habitaciones/habitacion_compartida_4_camas_2.jpg 1200w"
+              sizes="(max-width: 800px) 100vw, 33vw"
+              alt="Habitación Compartida de 4 camas"
+              loading="lazy">
+            <span class="room-badge">Compartida</span>
+          </figure>
+          <h3>Compartida 4 Camas</h3>
+          <p>Desde $22.000 / noche por persona</p>
+          <a class="btn" href="Habitaciones.html#compartidas">Ver más</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Servicios esenciales del hotel -->
+  <section class="servicios" id="servicios">
+    <div class="container">
+      <div class="home-header">
+        <h2>Servicios esenciales</h2>
+      </div>
+
+      <div class="cards servicios-cards">
+        <article class="card servicio-card">
+          <div class="servicio-icon">📶</div>
+          <h3>Wi-Fi de alta velocidad</h3>
+          <p>Cobertura en habitaciones y áreas comunes.</p>
+        </article>
+
+        <article class="card servicio-card">
+          <div class="servicio-icon">🍳</div>
+          <h3>Desayuno</h3>
+          <p>Opción continental. Horario extendido en temporada.</p>
+        </article>
+
+        <article class="card servicio-card">
+          <div class="servicio-icon">🅿️</div>
+          <h3>Estacionamiento</h3>
+          <p>En el predio, sujeto a disponibilidad.</p>
+        </article>
+
+        <article class="card servicio-card">
+          <div class="servicio-icon">🧼</div>
+          <h3>Limpieza diaria</h3>
+          <p>Reposición de blancos y amenities.</p>
+        </article>
+
+        <article class="card servicio-card">
+          <div class="servicio-icon">🕘</div>
+          <h3>Recepción</h3>
+          <p>Atención amplia. Check-in/Check-out flexible (consulta).</p>
+        </article>
+
+        <article class="card servicio-card">
+          <div class="servicio-icon">🔥</div>
+          <h3>Calefacción</h3>
+          <p>Ambientes calefaccionados para el clima cordillerano.</p>
+        </article>
+
+        <article class="card servicio-card">
+          <div class="servicio-icon">🧺</div>
+          <h3>Lavandería</h3>
+          <p>Servicio tercerizado con retiro en el hotel.</p>
+        </article>
+
+        <article class="card servicio-card">
+          <div class="servicio-icon">🧳</div>
+          <h3>Guardaequipaje</h3>
+          <p>Dejás tus cosas y aprovechás el día.</p>
+        </article>
+
+        <article class="card servicio-card">
+          <div class="servicio-icon">🚐</div>
+          <h3>Traslados</h3>
+          <p>Coordinamos taxi/remis a EQS, La Hoya o Trevelin.</p>
+        </article>
+
+        <article class="card servicio-card">
+          <div class="servicio-icon">🍼</div>
+          <h3>Kit familia</h3>
+          <p>Cuna y silla para bebé (con reserva previa).</p>
+        </article>
+
+        <article class="card servicio-card">
+          <div class="servicio-icon">♿</div>
+          <h3>Accesibilidad</h3>
+          <p>Accesos y habitaciones adaptadas (consultar).</p>
+        </article>
+
+        <article class="card servicio-card">
+          <div class="servicio-icon">🛎️</div>
+          <h3>Conserjería</h3>
+          <p>Recomendaciones de restaurantes y reservas.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Nueva sección: Cómo reservo -->
+  <section class="como-reservar">
+    <div class="container">
+      <h2>¿Cómo reservo?</h2>
+      <ol>
+        <li>Elegí las fechas en las que querés hospedarte.</li>
+        <li>Escribinos por WhatsApp.</li>
+        <li>Te confirmamos la habitación y el precio.</li>
+      </ol>
+      <a class="btn-whatsapp-hero" href="https://wa.me/5491112345678?text=Hola,%20quiero%20reservar" target="_blank" rel="noopener">
+        Reservar ahora
+      </a>
+    </div>
+  </section>
+
+  <!-- Qué podés hacer en Esquel (teaser a Blog) -->
+  <section class="esquel-teaser">
+    <div class="container">
+      <div class="home-header">
+        <h2>Qué podés hacer en Esquel</h2>
+        <a href="Blog.html" class="btn btn-ghost">Ver más en el blog →</a>
+      </div>
+
+      <div class="cards esquel-cards">
+        <article class="card esquel-card">
+          <img src="../IMG/Turisticos/La_Trochita.jpeg" alt="La Trochita (Viejo Expreso Patagónico)" loading="lazy">
+          <div class="esquel-card-body">
+            <h3>La Trochita</h3>
+            <p>Paseo en el icónico tren patagónico.</p>
+            <a href="Blog.html#la-trochita" class="link-vermas">Leer más →</a>
+          </div>
+        </article>
+
+        <article class="card esquel-card">
+          <img src="../IMG/Turisticos/La_Hoya.JPG" alt="Centro de Ski La Hoya" loading="lazy">
+          <div class="esquel-card-body">
+            <h3>Centro de Ski La Hoya</h3>
+            <p>Nieve seca, vistas increíbles y pistas para todos.</p>
+            <a href="Blog.html#la-hoya" class="link-vermas">Leer más →</a>
+          </div>
+        </article>
+
+        <article class="card esquel-card">
+          <img src="../IMG/Turisticos/PN_Alerces.jpg" alt="Parque Nacional Los Alerces" loading="lazy">
+          <div class="esquel-card-body">
+            <h3>PN Los Alerces</h3>
+            <p>Navegación al Alerzal Milenario y senderos top.</p>
+            <a href="Blog.html#pn-alerces" class="link-vermas">Leer más →</a>
+          </div>
+        </article>
+
+        <article class="card esquel-card">
+          <img src="../IMG/Turisticos/Tulipanes.jpg" alt="Trevelin y sus tulipanes" loading="lazy">
+          <div class="esquel-card-body">
+            <h3>Trevelin</h3>
+            <p>Tulipanes</p>
+            <a href="Blog.html#trevelin" class="link-vermas">Leer más →</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonios -->
+  <section class="testimonios">
+    <div class="container">
+      <h2>Lo que dicen nuestros huéspedes</h2>
+      <div class="grid-testimonios">
+        <blockquote class="testi">
+          <p>“Vacaciones increíbles. La atención fue excelente y la piscina, un 10.”</p>
+          <footer>— Juan P., Buenos Aires</footer>
+        </blockquote>
+        <blockquote class="testi">
+          <p>“Muy cómodas las habitaciones y el desayuno riquísimo.”</p>
+          <footer>— Martina G., Neuquén</footer>
+        </blockquote>
+        <blockquote class="testi">
+          <p>“Ubicación perfecta y vistas hermosas. Volveremos.”</p>
+          <footer>— Familia R., Trelew</footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ubicación -->
+  <section class="ubicacion">
+    <div class="container">
+      <div class="mapa">
+        <iframe
+          title="Mapa Hotel Paraíso"
+          src="https://www.google.com/maps?q=Hotel+Paraiso&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+      <div class="datos">
+        <h2>¿Dónde estamos?</h2>
+        <p>A 5 minutos del centro. Cerca de restaurantes, paseos y puntos turísticos.</p>
+        <ul>
+          <li>📍 Dirección: Calle Falsa 123, Ciudad</li>
+          <li>☎ Tel: (0297) 123-4567</li>
+          <li>✉ Email: reservas@hotelparaiso.com</li>
+        </ul>
+        <a class="btn" href="https://wa.me/5491112345678?text=Hola,%20quiero%20hacer%20una%20consulta%20sobre%20disponibilidad" target="_blank" rel="noopener">
+          Consultar por WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="footer" class="footer">
+    <h2>Universidad Nacional de la Patagonia San Juan Bosco</h2>
+    <p>Proyecto UNPSJB - Hotel Paraíso</p>
+  </footer>
+
+  <!-- Chatbot -->
+  <button id="chatbot-button">
+    <img src="../IMG/Iconos/Chatbot.png" alt="Chatbot">
+  </button>
+  <div id="chatbot-widget" style="display: none;">
+    <div id="chatbot-header">
+      <img src="../IMG/Iconos/Chatbot.png" alt="Hotel">
+      <span class="header-text">Asistente Virtual</span>
+      <span class="close-btn">&times;</span>
+    </div>
+    <div id="chatbot-messages"></div>
+    <input type="text" id="chatbot-input" placeholder="Escribe tu mensaje...">
+  </div>
+
+  <!-- Scripts -->
+  <script src="../JS/Menu.js"></script>
+  <script src="../JS/Disponibilidad.js"></script>
+  <script src="../JS/ChatBot.js"></script>
+</body>
+</html>
