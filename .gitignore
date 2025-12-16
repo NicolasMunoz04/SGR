@@ -31,3 +31,12 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# === Configuracion sensible ===
+application.properties
+application-local.properties
+.env
+
+# === Logs ===
+*.log
+logs/
