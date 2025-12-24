@@ -226,7 +226,7 @@
     // ======================================================
     document.addEventListener('DOMContentLoaded', () => {
         
-        const API_BASE_URL = "http://localhost:8080"; // URL de tu backend
+        const API_BASE_URL = window.location.origin; // URL de tu backend
 
         // Instancias
         const calendar = new CalendarManager();

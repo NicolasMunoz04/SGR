@@ -21,7 +21,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    const API_BASE_URL = "http://localhost:8080";
+    // Acá tambien agregue la URL dinámica
+    const API_BASE_URL = window.location.origin;
+    
     let reservasEncontradas = [];
     let todasLasHabitaciones = [];
 

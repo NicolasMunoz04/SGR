@@ -97,9 +97,13 @@ document.addEventListener("DOMContentLoaded", async () => {
   const config = new EstablishmentConfig();
   config.updateUI();
 
+  // URL DINÁMICA
+  const API_BASE_URL = window.location.origin;
+
   // Cargar check-ins
   try {
-      const responseIn = await fetch("http://localhost:8080/reservas/checkin");
+      // CAMBIADO: Antes decía http://localhost:8080
+      const responseIn = await fetch(`${API_BASE_URL}/reservas/checkin`);
       const checksIn = await responseIn.json();
       listarHabitacionesin(checksIn);
   } catch (error) {
@@ -109,7 +113,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   // Cargar check-outs
   try {
-      const responseOut = await fetch("http://localhost:8080/reservas/checkout");
+      // CAMBIADO: Antes decía http://localhost:8080
+      const responseOut = await fetch(`${API_BASE_URL}/reservas/checkout`);
       const checksOut = await responseOut.json();
       listarHabitacionesout(checksOut);
   } catch (error) {

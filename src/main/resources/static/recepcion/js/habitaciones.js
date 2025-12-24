@@ -86,7 +86,7 @@ function showAlert(title, text = "", icon = "info") {
 document.addEventListener("DOMContentLoaded", async () => {
     
 
-    const API_BASE_URL = "http://localhost:8080"; // URL base de tu API
+    const API_BASE_URL = window.location.origin; // URL dinamica
 
     // --- 1. INICIALIZAR PERSONALIZACIÓN ---
     const config = new EstablishmentConfig();
